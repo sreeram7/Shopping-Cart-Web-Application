@@ -1,0 +1,17 @@
+﻿@using S_cart.Models;
+
+@{
+    ViewBag.Title = "General";
+    User user = (User)ViewData["user"];
+}
+
+<h2>The .NET Shop </h2>
+
+@{ 
+    <table>
+        <tr>
+            <th>Hello @user.LastName @user.LastName </th>
+        </tr>
+    </table>
+}
+

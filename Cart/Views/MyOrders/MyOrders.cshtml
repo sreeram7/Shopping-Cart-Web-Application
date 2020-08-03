@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Orders";
+}
+
+@model Cart.Models.Orders
+@using Cart.Models;
+
+
+
+@foreach (Orders item in ViewBag.list)
+{
+    <div class="productlist">
+        <div class="productimage"> <img src="@item.Image" height="200" width="200" /></div>
+
+        <div class="formdescription">
+            <span><input type="hidden" name="productid" value="@item.Id" /><br /></span>
+            <span><input type="text" name="productname" value="@item.Product_Name" /><br /></span>
+            <span><textarea name="productdescription" rows="2" wrap="soft" cols="65" value="@item.Prod_Desc">@item.Prod_Desc</textarea><br /><br /></span>
+            <span>Purchased on: <input type="text" name="purchasedate" value="@item.OrderDate" /></span><br />
+            <span>Quantity: <input type="text" name="quantity" value="@item.Quantity" /></span><br />
+            <span>Activation Code: <input type="text" name="activationcode" value="@item.Act_Code" /></span><br />
+        </div>
+
+    </div>
+}
+
+
+

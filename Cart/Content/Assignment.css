@@ -1,0 +1,181 @@
+﻿body {
+    font-family: 'Calibri';
+    text-align: center;
+    background-color:peachpuff;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8470FF;
+}
+
+li:first-child {
+    float: left;
+    padding-left: .6em;
+}
+
+li {
+    float: right;
+    padding-right: .6em;
+}
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+table {
+    border: 0;
+    line-height: 1.8;
+    font-family: 'verdana';
+    background-color: white;
+}
+
+input[type=submit] {
+    font-family: Calibri;
+    color: white;
+    background: #117A65;
+}
+
+.button {
+    width: 100px;
+    height: 30px;
+    background-color: #E1E8EE;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.productlist {
+    width: 60%;
+    height: 250px;
+    margin: 80px auto;
+    background: #FFFFFF;
+    box-shadow: 1px 3px 3px 0px rgba(0,0,0,0.10);
+    border-radius: 10px;
+    display: flex;
+}
+
+.productimage {
+    margin-left: 80px;
+    margin-right: 50px;
+}
+
+.formdescription {
+    width: 550px;
+    height: auto;
+    text-align: left;
+    margin: 10px auto;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+input[name*=productname] {
+    font-family: Verdana;
+    font-weight: bold;
+    color: black;
+    border: none;
+}
+
+input[name*=productdescription] {
+    font-family: Calibri;
+    font-weight: 300;
+    width: 300px;
+    color: black;
+    border: none;
+}
+
+textarea[name*=productdescription] {
+    font-family: Calibri;
+    font-weight: 300;
+    color: black;
+    border: none;
+}
+
+input[name*=productprice] {
+    font-family: Calibri;
+    font-weight: bold;
+    width: 300px;
+    color: black;
+    border: none;
+}
+
+button[class*=add_to_cart] {
+    width: 100px;
+    height: 30px;
+    background-color: #E1E8EE;
+    border-radius: 6px;
+    font-family: Verdana;
+    border: none;
+    cursor: pointer;
+}
+
+input[class*=add_to_cart] {
+    width: 100px;
+    height: 30px;
+    background-color: #E1E8EE;
+    border-radius: 6px;
+    font-family: Verdana;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+
+.item {
+    width: 80%;
+    height: 250px;
+    margin: 80px auto;
+    background: #FFFFFF;
+    box-shadow: 1px 3px 3px 0px rgba(0,0,0,0.10);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.image {
+    margin-left: 80px;
+    margin-right: 50px;
+}
+
+.description {
+    width: 550px;
+    height: auto;
+    text-align: left;
+    margin: 80px auto;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+    .description span:last-child {
+        font-weight: 300;
+        margin-top: 8px;
+        color: #86939E;
+    }
+
+.price {
+    width: auto;
+    height: auto;
+    font-size: 18px;
+    margin: 80px auto;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    width: auto;
+    height: auto;
+    margin: 80px auto;
+    background: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+}

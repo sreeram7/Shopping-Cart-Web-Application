@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "ViewCart";
+}
+@using Cart.Models;
+@{
+    int userid = (int)ViewData["uid"];
+    int cart_count = (int)ViewData["count"];
+}
+
+
+<div>
+    
+</div>
+
+<h2>Your Cart</h2>
+<table align="center" cellpadding="15" style="text-align:center">
+    <tr align="center" style="text-align:center; font-size:large">
+        <th>
+          
+        </th>
+        <th>
+           
+        </th>
+        <th>
+            
+        </th>
+        <th>
+           
+        </th>
+    </tr>
+
+    @foreach (var item in ViewBag.list)
+    {
+        int total = @item.Quantity * @item.Price;
+    <tr>
+        <td style="color:white" >@item.Product_Id</td>
+        <td><img src="@item.Url" height="100" width="100" /></td>
+        <td>Quantity: @item.Quantity</td>
+        <td>Total: $@total</td>
+        <td>
+            <input type="button" value="REMOVE" onclick="location.href='@Url.Action("RemoveFromCart", "DisplayCart",new { p_id = @item.Product_Id,u_id = userid })'" />
+        </td>
+    </tr>
+      
+    }
+    
+    <tr>
+        <td colspan="5" align="right">
+           
+            <a href="@Url.Action("Search", "Gallery", new { uid = userid })">
+                <button>CONTINUE SHOPPING</button>
+            </a>
+            
+            <input type="button" value="CHECK OUT" />
+        </td>
+      
+    </tr>
+</table>
+
+
+

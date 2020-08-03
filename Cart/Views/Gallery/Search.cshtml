@@ -1,0 +1,118 @@
+﻿<script type="text/javascript">
+    $(document).ready(function () {
+        $("#ajaxcall").click(function(){
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddtoCart", "Gallery")',
+                data: { a: "testing" },
+                dataType: "json",
+                success: function () { alert('Success'); },
+                error: function () {
+                    alert('error')
+                }
+            });
+        });
+    });
+    function addtocart(event) {                                          
+        alert("one item added to cart")
+    }
+    function removefromcart(event) {                                                
+        alert("one item removed to cart")                                            
+    }
+</script>
+@{
+    ViewBag.Title = "Search";
+}
+
+@model Cart.Models.Products
+@using Cart.Models;
+@{
+    string user = (string)ViewData["user"];
+    int userid = (int)ViewData["uid"];
+    int cart_count = (int)ViewData["count"];
+}
+
+@Html.Partial("_greeting", user)
+
+@{
+   
+    using (Html.BeginForm("Search", "Gallery", FormMethod.Post))
+    {
+        <table align="center">
+            <tr>
+                <td>
+                    @Html.TextBox("searchqueery")
+                    <input type="submit" placeholder="Enter Product name.." value="Search" />
+                    <input type="hidden" id="uid" name="uid" value="@userid">
+                    <input type="hidden" id="count" name="count" value="@cart_count">
+                    <input type="hidden" id="User" name="user" value="@user">
+                </td>
+            </tr>
+        </table>
+        <br />
+    }  
+    foreach (Products item in ViewBag.list)
+    {
+        <div class="productlist">
+            <div class="col">
+            <div class="productimage"> <img src="@item.Url" height="200" width="200" /></div>
+
+            <div class="formdescription">
+                <span><input type="hidden" name="productid" value="@item.Product_Id" /><br /></span>
+                <span><input type="text" name="productname" value="@item.Product_Name"/><br /></span>
+                <span><textarea name="productdescription" rows="2" wrap="soft" cols="65" value="@item.Prod_Desc">@item.Prod_Desc</textarea><br /><br /></span>
+                <span>$<input type="text" name="productprice" value="@item.Price" /></span><br />
+                <span>
+                   <input type="button" value="ADD" onclick="addtocart(event);location.href='@Url.Action("Add2Cart", "Gallery",new { p_id = @item.Product_Id,u_id = userid })'" id="@item.Product_Id" />
+                   <input type="button" value="REMOVE" onclick="removefromcart();location.href='@Url.Action("RemovefromCart", "Gallery",new { p_id = @item.Product_Id,u_id = userid })'" />
+                </span><br />
+                <span>
+                </span><br />
+            </div>
+            </div>
+        </div>
+    }   
+}
+<style>
+    .productlist{
+        border:1px solid #F00;
+        width:600px;
+        height:450px;
+    }
+    .col{
+        width:300px;
+        height:300px;
+        margin:20px;
+        padding:20px;
+    }
+
+    .col{
+
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+    }
+
+        .grid-container > div {
+            background-color: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            padding: 10px 0;
+            font-size: 5px;
+        }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
